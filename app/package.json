@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "docker_web_app",
   "version": "1.0.0",
   "description": "Node.js on Docker",
@@ -10,5 +11,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.16.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }

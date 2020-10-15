@@ -1,0 +1,11 @@
+const { DataTypes } = require('sequelize');
+
+module.exports = (sequelize) => {
+	const Stub = sequelize.define('stub', {
+		url: DataTypes.STRING,
+		hit: DataTypes.INTEGER,
+		unique: true,
+		allowNull: false,
+	});
+	return Stub;
+};

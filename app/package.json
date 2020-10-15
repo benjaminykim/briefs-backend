@@ -1,0 +1,26 @@
+{
+  "name": "Briefs",
+  "version": "1.0.0",
+  "description": "url shortener",
+  "author": "Ben Kim <1996byk@gmail.com>",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node --experimental-modules src/server.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.0",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.12.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.16.1",
+    "pg": "^8.4.1",
+    "require": "^2.4.20",
+    "sequelize": "^6.3.5",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}

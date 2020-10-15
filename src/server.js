@@ -1,10 +1,13 @@
 import 'dotenv/config.js';
 import express from 'express';
 import cors from 'cors';
-const HOST = '0.0.0.0';
+import { v4 as uuidv4 } from 'uuid';
 
+const HOST = '0.0.0.0';
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get('/', (req, res) => {
@@ -17,8 +20,11 @@ app.get('/:stubId', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  //return res.send(req.params.url);
-  return res.send('Received a POST HTTP method');
+  const id = uuidv4();
+  console.log(req.body);
+  console.log(req.body.url);
+  return res.send(req.body.url);
+  return res.send('Received a POST HTTP method' + id);
 });
 
 app.put('/', (req, res) => {

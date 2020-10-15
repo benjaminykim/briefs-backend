@@ -8,6 +8,7 @@ const sequelize = new Sequelize(
 	process.env.DATABASE_PASSWORD,
 	{
 		dialect: 'postgres',
+		host: 'db',
 	},
 );
 
@@ -15,10 +16,19 @@ const modelDefiners = [
 	require('./stub.model'),
 ];
 
-// We define all models according to their files.
 for (const modelDefiner of modelDefiners) {
 	modelDefiner(sequelize);
 }
 
-// We export the sequelize connection instance to be used around our app.
+async function testDatabaseConnection() {
+	try {
+		await sequelize.authenticate();
+		console.log('Connection has been established successfully.');
+	} catch (error) {
+		console.error('Unable to connect to the database:', error);
+	}
+}
+
+testDatabaseConnection();
+
 module.exports = sequelize;

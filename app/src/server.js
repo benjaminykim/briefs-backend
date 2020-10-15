@@ -22,9 +22,7 @@ function makeHandlerAwareOfAsyncErrors(handler) {
 	};
 }
 
-//app.use('/', routes.home);
 for (const [routeName, routeController] of Object.entries(routes)) {
-	console.log("routeName: " + routeName);
 	if (routeController.getAll) {
 		app.get(
 			`${routeName}`,

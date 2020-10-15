@@ -1,3 +1,5 @@
+import 'dotenv/config.js';
+
 const { Sequelize, Model, DataTypes } = require("sequelize");
 
 const sequelize = new Sequelize(
@@ -11,8 +13,6 @@ const sequelize = new Sequelize(
 
 const modelDefiners = [
 	require('./stub.model'),
-	// Add more models here...
-	// require('./models/item'),
 ];
 
 // We define all models according to their files.

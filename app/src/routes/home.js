@@ -2,7 +2,7 @@ import Router from 'express';
 const { models } = require('../models');
 
 async function getAll(req, res) {
-	const stubs = await models.stub.findAll();
+	const stubs = await models.Stub.findAll();
 	console.log(stubs);
 	if (stubs) {
 		res.status(200).json(stubs);

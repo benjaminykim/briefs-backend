@@ -57,6 +57,13 @@ then
     then
         sudo docker-compose -f docker-compose.dev.yml logs -f;
     fi
+elif [ $ARG = "refresh" ]
+then
+    echo "Clearing Docker builds";
+    docker stop $(docker ps -aq);
+    docker rm $(docker ps -aq);
+    docker rmi $(docker images -q);
+    docker system prune --all --force --volumes;
 else
     echo -e $USAGE;
 fi

@@ -35,12 +35,8 @@ then
     if [ -z $ARG_2 ]
     then
         echo "logs options | prod | dev |"
-    elif [ $ARG_2 = "prod" ]
-    then
-        sudo docker-compose -f docker-compose.prod.yml logs -f;
-    elif [ $ARG_2 = "dev" ]
-    then
-        sudo docker-compose -f docker-compose.dev.yml logs -f;
+    else
+        sudo docker-compose -f docker-compose.yml -f docker-compose/docker-compose.$ARG_2.yml logs -f;
     fi
     exit 0;
 elif [ $ARG = "refresh" ]

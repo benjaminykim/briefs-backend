@@ -4,8 +4,6 @@ services:
     command: start
     ports:
       - "${API_PORT}:${API_PORT}"
-    expose:
-      - "3000"
     stdin_open: false
     depends_on:
       - db
@@ -34,3 +32,4 @@ services:
       - api
     volumes:
       - ./data/nginx:/etc/nginx/conf.d
+      - ./data/cert:/etc/cert

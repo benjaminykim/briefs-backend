@@ -13,7 +13,7 @@ async function getAll(req, res) {
 
 async function getById(req, res) {
 	const id = getIdParam(req);
-	const stub = await models.stub.findByPk(id);
+	const stub = await models.Stub.findByPk(id);
 	if (stub) {
 		res.status(200).json(stub);
 	} else {
@@ -22,10 +22,11 @@ async function getById(req, res) {
 };
 
 async function create(req, res) {
+	console.log(req.body);
 	if (req.body.id) {
 		res.status(400).send(`Bad request: ID should not be provided, since it is determined automatically by the database.`)
 	} else {
-		await models.stub.create(req.body);
+		await models.Stub.create(req.body);
 		res.status(201).end();
 	}
 };
@@ -35,7 +36,7 @@ async function update(req, res) {
 
 	// We only accept an UPDATE request if the `:id` param matches the body `id`
 	if (req.body.id === id) {
-		await models.stub.update(req.body, {
+		await models.Stub.update(req.body, {
 			where: {
 				id: id
 			}
@@ -48,7 +49,7 @@ async function update(req, res) {
 
 async function remove(req, res) {
 	const id = getIdParam(req);
-	await models.stub.destroy({
+	await models.Stub.destroy({
 		where: {
 			id: id
 		}

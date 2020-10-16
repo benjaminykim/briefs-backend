@@ -34,12 +34,6 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-async function test() {
-	const stubs = await db.Stub.findAll();
-	console.log(stubs);
-}
-
-test();
 const models = db;
 
 module.exports = {

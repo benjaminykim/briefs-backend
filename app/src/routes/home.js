@@ -1,5 +1,6 @@
 import Router from 'express';
 const { models } = require('../models');
+const axios = require('axios');
 
 async function getAll(req, res) {
 	const stubs = await models.Stub.findAll();
@@ -12,10 +13,14 @@ async function getAll(req, res) {
 };
 
 async function getById(req, res) {
-	const id = getIdParam(req);
+	const id = req.params.id;
 	const stub = await models.Stub.findByPk(id);
 	if (stub) {
-		res.status(200).json(stub);
+		//console.log(stub.dataValues.url);
+		//res.status(302).json(stub).url;
+		//res.status(200).json(stub);
+		const res = await axios.get("https://google.com");
+		res.data;
 	} else {
 		res.status(404).send('404 - Not found');
 	}

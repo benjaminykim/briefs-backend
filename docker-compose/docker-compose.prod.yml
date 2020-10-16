@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   api:
-    command: start
+    command: prod
     ports:
       - "${API_PORT}:${API_PORT}"
     stdin_open: false

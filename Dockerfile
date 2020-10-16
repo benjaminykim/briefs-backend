@@ -3,5 +3,5 @@ WORKDIR /app
 COPY ./app/package.* .
 COPY ./app/.babelrc .
 RUN npm install
-COPY ./app/src app
+COPY ./app/app app
 ENTRYPOINT [ "npm", "start" ]

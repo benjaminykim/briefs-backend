@@ -16,19 +16,7 @@ then
 elif [ $ARG = "help" ]
 then
     echo -e $USAGE;
-elif [ $ARG = "prod" ]
-then
-    echo "Deploying Production...";
-    sudo docker-compose -f docker-compose.yml -f docker-compose/docker-compose.$ARG.yml down;
-    sudo docker-compose -f docker-compose.yml -f docker-compose/docker-compose.$ARG.yml up -d;
-    if [ -z $ARG_2 ]
-    then
-        echo "Finished";
-    elif [ $ARG_2 = "-f" ]
-    then
-        sudo docker-compose -f docker-compose.yml -f docker-compose/docker-compose.$ARG.yml logs -f;
-    fi
-elif [ $ARG = "dev" ]
+elif [ $ARG = "dev" -o $ARG = "prod" ]
 then
     echo "Deploying Development...";
     sudo docker-compose -f docker-compose.yml -f docker-compose/docker-compose.$ARG.yml down;
@@ -40,10 +28,7 @@ then
     then
         sudo docker-compose -f docker-compose.yml -f docker-compose/docker-compose.$ARG.yml logs -f;
     fi
-elif [ $ARG = "cert" ]
-then
-    echo "Configuring Security Certificates...";
-    sudo ./init-letsencrypt.sh
+    exit 0;
 elif [ $ARG = "logs" ]
 then
     echo "Running Logs...";
@@ -57,6 +42,7 @@ then
     then
         sudo docker-compose -f docker-compose.dev.yml logs -f;
     fi
+    exit 0;
 elif [ $ARG = "refresh" ]
 then
     echo "Clearing Docker builds";

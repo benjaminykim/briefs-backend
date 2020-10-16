@@ -18,8 +18,7 @@ async function getById(req, res) {
 	const stub = await models.Stub.findByPk(id);
 	if (stub) {
 		console.log(stub.dataValues.url);
-		const res = await axios.get(stub.dataValues.url);
-		res.data;
+		res.redirect(stub.dataValues.url);
 	} else {
 		res.status(404).send('404 - Not found');
 	}

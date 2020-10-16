@@ -10,7 +10,6 @@ const routes = {
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 
 function makeHandlerAwareOfAsyncErrors(handler) {
 	return async function(req, res, next) {
@@ -21,6 +20,15 @@ function makeHandlerAwareOfAsyncErrors(handler) {
 		}
 	};
 }
+
+function ignoreFavicon(req, res, next) {
+	if (req.originalUrl.includes('favicon.ico')) {
+		res.status(204).end();
+	}
+	next();
+}
+
+app.use(ignoreFavicon);
 
 for (const [routeName, routeController] of Object.entries(routes)) {
 	if (routeController.getAll) {

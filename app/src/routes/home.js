@@ -14,6 +14,7 @@ async function getAll(req, res) {
 
 async function getById(req, res) {
 	const id = req.params.id;
+	console.log("ID: " + id);
 	const stub = await models.Stub.findByPk(id);
 	if (stub) {
 		console.log(stub.dataValues.url);

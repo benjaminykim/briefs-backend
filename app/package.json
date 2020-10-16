@@ -5,8 +5,8 @@
   "author": "Ben Kim <1996byk@gmail.com>",
   "main": "src/server.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/server.js",
-    "prod": "nodemon --exec babel-node src/server.js"
+    "start": "nodemon --exec babel-node app/server.js",
+    "prod": "nodemon --exec babel-node app/server.js"
   },
   "dependencies": {
     "@babel/core": "^7.12.0",

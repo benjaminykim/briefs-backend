@@ -6,7 +6,7 @@ async function getAll(req, res) {
 	const stubs = await models.Stub.findAll();
 	console.log(stubs);
 	if (stubs) {
-		res.redirect("https://briefs-32b39.web.app");
+		res.redirect("https://make.briefs.link");
 	} else {
 		res.status(404).send('404 not found');
 	}

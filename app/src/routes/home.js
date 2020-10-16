@@ -19,7 +19,7 @@ async function getById(req, res) {
 		//console.log(stub.dataValues.url);
 		//res.status(302).json(stub).url;
 		//res.status(200).json(stub);
-		const res = await axios.get("https://google.com");
+		const res = await axios.get("https://briefs.link");
 		res.data;
 	} else {
 		res.status(404).send('404 - Not found');

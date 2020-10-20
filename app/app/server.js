@@ -3,9 +3,6 @@ const express = require('express');
 import cors from 'cors';
 
 const HOST = '0.0.0.0';
-const routes = {
-	'/': require('./routes/home'),
-};
 
 const app = express();
 app.use(express.json());
@@ -13,6 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 var mainRoutes = require('./routes/app');
+var metaRoutes = require('./routes/meta');
+
+app.use('/meta', metaRoutes);
 app.use('/', mainRoutes);
 
 function ignoreFavicon(req, res, next) {
@@ -23,61 +23,6 @@ function ignoreFavicon(req, res, next) {
 }
 
 app.use(ignoreFavicon);
-
-/*
-function makeHandlerAwareOfAsyncErrors(handler) {
-	return async function(req, res, next) {
-		try {
-			await handler(req, res);
-		} catch (error) {
-			next(error);
-		}
-	};
-}
-
-app.get('/console', function (req, res) {
-	res.send('about');
-});
-
-for (const [routeName, routeController] of Object.entries(routes)) {
-	if (routeController.getAll) {
-		app.get(
-			`${routeName}`,
-			makeHandlerAwareOfAsyncErrors(routeController.getAll)
-		);
-	}
-	if (routeController.getConsole) {
-		app.get(
-			`${routeName}/console`,
-			makeHandlerAwareOfAsyncErrors(routeController.getConsole)
-		);
-	}
-	if (routeController.getById) {
-		app.get(
-			`${routeName}:id`,
-			makeHandlerAwareOfAsyncErrors(routeController.getById)
-		);
-	}
-	if (routeController.create) {
-		app.post(
-			`${routeName}`,
-			makeHandlerAwareOfAsyncErrors(routeController.create)
-		);
-	}
-	if (routeController.update) {
-		app.put(
-			`${routeName}:id`,
-			makeHandlerAwareOfAsyncErrors(routeController.update)
-		);
-	}
-	if (routeController.remove) {
-		app.delete(
-			`${routeName}:id`,
-			makeHandlerAwareOfAsyncErrors(routeController.remove)
-		);
-	}
-}
-*/
 
 app.listen(process.env.API_PORT, HOST);
 console.log(`Running app on http://${HOST}:${process.env.API_PORT}`);

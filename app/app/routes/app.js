@@ -4,6 +4,7 @@ const { models } = require('../models');
 
 router.use(function timeLog (req, res, next) {
 	var d = new Date();
+	console.log();
 	console.log('Time: ',d.toGMTString());
 	console.log('From: ', req.originalUrl);
 	next();
@@ -26,9 +27,10 @@ router.get('/:id', async function(req, res) {
 	const id = req.params.id;
 	const record = await models.Stub.findByPk(id);
 	console.log(id);
-	console.log(record);
 	if (record) {
-		console.log(record.dataValues.url);
+		record.hit = record.hit + 1;
+		await record.save();
+		console.log(record.dataValues);
 		res.redirect(record.dataValues.url);
 	} else {
 		res.status(404).send('404 - Not found');

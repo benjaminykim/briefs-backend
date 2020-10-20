@@ -19,14 +19,14 @@ then
 elif [ $ARG = "dev" -o $ARG = "prod" ]
 then
     echo "Deploying Development...";
-    sudo docker-compose -f docker-compose.yml -f docker-compose/docker-compose.$ARG.yml down;
-    sudo docker-compose -f docker-compose.yml -f docker-compose/docker-compose.$ARG.yml up -d;
+    docker-compose -f docker-compose.yml -f docker-compose/docker-compose.$ARG.yml down;
+    docker-compose -f docker-compose.yml -f docker-compose/docker-compose.$ARG.yml up -d;
     if [ -z $ARG_2 ]
     then
         echo "Finished";
     elif [ $ARG_2 = "-f" ]
     then
-        sudo docker-compose -f docker-compose.yml -f docker-compose/docker-compose.$ARG.yml logs -f;
+        docker-compose -f docker-compose.yml -f docker-compose/docker-compose.$ARG.yml logs -f;
     fi
     exit 0;
 elif [ $ARG = "logs" ]

@@ -12,6 +12,11 @@ async function getAll(req, res) {
 	}
 };
 
+async function getConsole(req, res) {
+	console.log("Console Found");
+	res.status("Hi");
+}
+
 async function getById(req, res) {
 	const id = req.params.id;
 	console.log("ID: " + id);
@@ -63,6 +68,7 @@ async function remove(req, res) {
 module.exports = {
 	getAll,
 	getById,
+	getConsole,
 	create,
 	update,
 	remove,

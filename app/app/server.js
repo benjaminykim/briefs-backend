@@ -12,15 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-function makeHandlerAwareOfAsyncErrors(handler) {
-	return async function(req, res, next) {
-		try {
-			await handler(req, res);
-		} catch (error) {
-			next(error);
-		}
-	};
-}
+var mainRoutes = require('./routes/app');
+app.use('/', mainRoutes);
 
 function ignoreFavicon(req, res, next) {
 	if (req.originalUrl.includes('favicon.ico')) {
@@ -31,11 +24,32 @@ function ignoreFavicon(req, res, next) {
 
 app.use(ignoreFavicon);
 
+/*
+function makeHandlerAwareOfAsyncErrors(handler) {
+	return async function(req, res, next) {
+		try {
+			await handler(req, res);
+		} catch (error) {
+			next(error);
+		}
+	};
+}
+
+app.get('/console', function (req, res) {
+	res.send('about');
+});
+
 for (const [routeName, routeController] of Object.entries(routes)) {
 	if (routeController.getAll) {
 		app.get(
 			`${routeName}`,
 			makeHandlerAwareOfAsyncErrors(routeController.getAll)
+		);
+	}
+	if (routeController.getConsole) {
+		app.get(
+			`${routeName}/console`,
+			makeHandlerAwareOfAsyncErrors(routeController.getConsole)
 		);
 	}
 	if (routeController.getById) {
@@ -63,6 +77,7 @@ for (const [routeName, routeController] of Object.entries(routes)) {
 		);
 	}
 }
+*/
 
 app.listen(process.env.API_PORT, HOST);
 console.log(`Running app on http://${HOST}:${process.env.API_PORT}`);

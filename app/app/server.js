@@ -10,9 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 var mainRoutes = require('./routes/app');
-var metaRoutes = require('./routes/meta');
+var consoleRoutes = require('./routes/console');
 
-app.use('/meta', metaRoutes);
+app.use('/console', consoleRoutes);
 app.use('/', mainRoutes);
 
 function ignoreFavicon(req, res, next) {

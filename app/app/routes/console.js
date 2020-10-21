@@ -14,9 +14,7 @@ router.get('/', async function(req, res) {
 	var ret = {};
 	ret.total = await models.Stub.count();
 	console.log(ret.total);
-	ret.best = await models.Stub.max('hit');
-	console.log(ret.best);
-	ret.best2 = await models.Stub.findAll({
+	ret.top = await models.Stub.findAll({
 		attributes: [
 			'id',
 			'url',

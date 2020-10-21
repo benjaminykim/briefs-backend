@@ -19,10 +19,6 @@ router.get('/all', async function(req, res) {
 	res.status(200).send(stubs);
 });
 
-router.get('/console', async function(req, res) {
-	res.status(200).send("console");
-});
-
 router.get('/:id', async function(req, res) {
 	const id = req.params.id;
 	const record = await models.Stub.findByPk(id);

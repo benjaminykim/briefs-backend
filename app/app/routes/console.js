@@ -32,7 +32,7 @@ router.get('/', async function(req, res) {
 		sec_write: 0.23,
 		total_write: 4920,
 		total_read: 131939,
-		total_storage: 100245,
+		total_storage: "11.4 mb",
 	}
 	res.status(200).send(JSON.stringify(ret));
 });

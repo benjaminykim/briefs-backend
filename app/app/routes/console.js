@@ -24,8 +24,8 @@ router.get('/', async function(req, res) {
 	}
 	);
 	ret.server = {
-		week_write: {22, 49, 20, 12, 5, 0, 2},
-		week_read: {1204, 2224, 958, 92, 56, 2, 491},
+		week_write: [22, 49, 20, 12, 5, 0, 2],
+		week_read: [1204, 2224, 958, 92, 56, 2, 491],
 		week_write_total: 104,
 		week_read_total: 6324,
 		sec_read: 4.2,

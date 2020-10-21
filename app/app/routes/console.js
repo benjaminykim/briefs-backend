@@ -23,6 +23,13 @@ router.get('/', async function(req, res) {
 		order: [['hit', 'DESC']],
 	}
 	);
+	ret.month = {
+		link: 44920,
+		link_sec: 1.2,
+		hit: 249200,
+		hit_sec: 4.2,
+		storage: 100245,
+	};
 	res.status(200).send(JSON.stringify(ret));
 });
 

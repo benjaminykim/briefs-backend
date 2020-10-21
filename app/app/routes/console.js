@@ -23,13 +23,17 @@ router.get('/', async function(req, res) {
 		order: [['hit', 'DESC']],
 	}
 	);
-	ret.month = {
-		link: 44920,
-		link_sec: 1.2,
-		hit: 249200,
-		hit_sec: 4.2,
-		storage: 100245,
-	};
+	ret.server = {
+		week_write: {22, 49, 20, 12, 5, 0, 2},
+		week_read: {1204, 2224, 958, 92, 56, 2, 491},
+		week_write_total: 104,
+		week_read_total: 6324,
+		sec_read: 4.2,
+		sec_write: 0.23,
+		total_write: 4920,
+		total_read: 131939,
+		total_storage: 100245,
+	}
 	res.status(200).send(JSON.stringify(ret));
 });
 

@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 const { models } = require('../models');
+const si = require('systeminformation');
 
 router.use(function timeLog (req, res, next) {
 	var d = new Date();
@@ -34,6 +35,12 @@ router.get('/', async function(req, res) {
 		total_read: 131939,
 		total_storage: "11.4 mb",
 	}
+	const cpu = await si.cpu()
+		.then(data => ret.cpu = data);
+	const cpuMem = await si.mem()
+		.then(data => ret.cpuMem = data);
+	const cpuDocker = await si.dockerInfo()
+		.then(data => ret.cpuDocker = data);
 	res.status(200).send(JSON.stringify(ret));
 });
 

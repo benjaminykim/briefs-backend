@@ -41,6 +41,8 @@ router.get('/', async function(req, res) {
 		.then(data => ret.cpuMem = data);
 	const cpuDocker = await si.dockerInfo()
 		.then(data => ret.cpuDocker = data);
+	const cpuNetwork = await si.networkInterfaces()
+		.then(data => ret.cpuNetwork = data);
 	res.status(200).send(JSON.stringify(ret));
 });
 

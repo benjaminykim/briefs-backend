@@ -1,0 +1,38 @@
+{
+"swagger": "2.0",
+"info": {
+"version": "1.0.0",
+"title": "Briefs API",
+"description": "Briefs Backend API Documentation"
+},
+"host": "localhost:9090",
+"basePath": "/",
+"tags": [
+{
+"name": "Url",
+"description": "API for users in the system"
+}
+],
+"schemes": [
+"https"
+],
+"consumes": [
+"application/json"
+],
+"produces": [
+"application/json"
+],
+"paths": {
+  "/": {
+    "get": {
+      "tags": ["url"],
+      "summary": "redirects to the stub's url",
+      "responses": {
+        "301": {
+          "description": "Successful Redirect"
+        }
+      }
+    }
+  }
+}
+}

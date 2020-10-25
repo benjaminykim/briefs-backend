@@ -21,6 +21,7 @@
     "pg": "^8.4.1",
     "require": "^2.4.20",
     "sequelize": "^6.3.5",
+    "swagger-ui-express": "^4.1.4",
     "systeminformation": "^4.27.10",
     "uuid": "^8.3.1"
   },

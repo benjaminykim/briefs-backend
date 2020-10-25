@@ -1,6 +1,6 @@
 # [Briefs](https://make.briefs.link) Backend
 
-[Briefs](https://make.briefs.link) is a url shortener with an admin console. The frontend code is found [here](https://github.com/benjaminykim/briefs-website) and the live app is found [here](https://make.briefs.link).
+[Briefs](https://make.briefs.link) is a url shortener with an admin console. [Frontend Codebase](https://github.com/benjaminykim/briefs-website) and [live app](https://make.briefs.link).
 
 Briefs Backend High Level:
 - JS, Node, Express, Postgres, Sequelize

@@ -2,26 +2,33 @@
 
 briefs.link is a url shortener
 
+# Setting Up
+- Clone the repository and install Docker Engine and Docker Compose
+- Create a `.env` file with your chosen environment variable values (.env.example as template)
+- [PROD] place your tls certificates in the `data/cert` directory, named as `cloudflare.crt` and `cloudflare.key` for public/private keys
+- Use the `./deploy.sh` script in order to build and deploy different modes
+  - run `./deploy.sh` to see the script's usage
+
 # Deployment
 
 The backend is containerized with Docker and utilizes the `./deploy.sh` shell script with Docker Compose in order to
 build and run the application.
 
 For a local build run:
+
 `./deploy.sh dev`
 
 For production, run:
+
 `./deploy.sh prod`
 
 Use the `-f` flag to follow logs:
+
 `./deploy.sh dev -f`
 
 To delete all Docker volumes, images, and containers for system prune, run:
+
 `./deploy refresh`
-
-Note that the production build will containerize the API, database and NGINX web server. Since we are using Cloudflare for DDOS protection and as a reverse proxy, we must manually store keys in the `data/cert` directory with `cloudflare.crt` and `cloudflare.key` inside.
-
-Both dev and prod deployment require a `.env` file. Use the `.env.example` file as a template for your environment variables.
 
 ## Configuration
 

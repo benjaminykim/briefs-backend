@@ -50,8 +50,10 @@ Be sure to install packages at the source code level of the directory structure 
 
 In both dev and prod mode, user must exec a shell command within the running Docker container for the backend api and install dependencies.
 
-`sh ./deploy.sh shell`
-`npm install {package_name}`
+```
+sh ./deploy.sh shell
+npm install {package_name}
+```
 
 Be sure to install packages at the source code level of the directory structure (where the package.json file is)
 

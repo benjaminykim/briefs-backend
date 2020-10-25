@@ -1,6 +1,9 @@
 # briefs.link backend rest api
 
-briefs.link is a url shortener
+briefs.link is a url shortener with an admin console
+
+Briefs backend is built with Javascript, Node, Express, Postgres, and Sequelize. The application is deployed and containerized using Docker Compose. Deployment and containerization is automated via BASH scripts.
+
 
 # Setting Up
 - Clone the repository and install Docker Engine and Docker Compose
@@ -21,7 +24,7 @@ sh ./deploy.sh dev -f   # for local deployment with logs
 sh ./deploy.sh refresh  # to clear all Docker volumes, images and containers
 ```
 
-## Configuration
+## Technical Infrastructure
 
 The backend is hosted on an AWS EC2 instance, behind Cloudflare. Security groups are configured for ports 80 and 443 (http and https).
 
@@ -47,3 +50,10 @@ In both dev and prod mode, user must exec a shell command within the running Doc
 `npm install {package_name}`
 
 Be sure to install packages at the source code level of the directory structure (where the package.json file is)
+
+# Considerations
+
+We will eventually use Typescript.
+We will eventually use a NoSQL database as a relation database does not aptly fit the project requirements.
+We will use CircleCI for continuous integration.
+Database will be decoupled from this configuration and stored in the cloud.

@@ -39,7 +39,7 @@ router.post('/', async function(req, res) {
 	if (req.body) {
 		const ret = await models.Stub.create(req.body);
 		// compute md5 hash using record id
-		var md5Hash = md5(ret.id.toString());
+		var md5Hash = md5(ret.url + ret.id.toString());
 		// take first 8 char of hash
 		var stub = md5Hash.slice(0, 8);
 		console.log(stub);

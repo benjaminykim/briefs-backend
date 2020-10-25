@@ -2,7 +2,7 @@
 
 [Briefs](https://make.briefs.link) is a url shortener with an admin console.
 - [Frontend codebase](https://github.com/benjaminykim/briefs-website)
-- [Demo](https://make.briefs.link).
+- [Demo](https://make.briefs.link)
 
 Briefs Backend High Level:
 - JS, Node, Express, Postgres, Sequelize

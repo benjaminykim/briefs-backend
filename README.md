@@ -53,7 +53,9 @@ Be sure to install packages at the source code level of the directory structure 
 
 # Considerations
 
-We will eventually use Typescript.
-We will eventually use a NoSQL database as a relation database does not aptly fit the project requirements.
-We will use CircleCI for continuous integration.
-Database will be decoupled from this configuration and stored in the cloud.
+- We will eventually use Typescript.
+- We will eventually use a NoSQL database as a relation database does not aptly fit the project requirements.
+- We will use CircleCI for continuous integration.
+- Database will be decoupled from this configuration and stored in the cloud.
+- We will eventually have 100% code coverage
+- We will eventually have git badges for status updates

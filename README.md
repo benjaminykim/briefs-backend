@@ -67,3 +67,7 @@ Be sure to install packages at the source code level of the directory structure 
 - have 100% code coverage via JEST
 - have git badges for status updates
 - API documentation generator via OpenAPI or Swagger (started)
+- User model with OAuth
+- Linting
+- Githooks for testing
+- Docker build for testing

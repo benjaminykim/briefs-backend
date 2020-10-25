@@ -57,10 +57,10 @@ Be sure to install packages at the source code level of the directory structure 
 
 ## Future Considerations
 
-- use Typescript.
-- use a NoSQL database as a relation database does not aptly fit the project requirements.
-- use CircleCI for continuous integration.
-- Database will be decoupled from this configuration and stored in the cloud.
+- use Typescript
+- use a NoSQL database as a relation database does not aptly fit the project requirements
+- use CircleCI for continuous integration
+- Database will be decoupled from this configuration and stored in the cloud
 - have 100% code coverage via JEST
 - have git badges for status updates
 - API documentation generator via OpenAPI or Swagger

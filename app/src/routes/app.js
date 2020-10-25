@@ -1,4 +1,5 @@
 var express = require('express')
+var md5 = require('md5');
 var router = express.Router()
 const { models } = require('../models');
 
@@ -37,6 +38,11 @@ router.post('/', async function(req, res) {
 	console.log(req.body);
 	if (req.body) {
 		const ret = await models.Stub.create(req.body);
+		// compute md5 hash using record id
+		var md5Hash = md5(ret.id.toString());
+		// take first 8 char of hash
+		var stub = md5Hash.slice(0, 8);
+		console.log(stub);
 		ret.stub = ret.id;
 		await ret.save();
 		console.log(ret);

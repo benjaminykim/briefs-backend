@@ -55,11 +55,12 @@ In both dev and prod mode, user must exec a shell command within the running Doc
 
 Be sure to install packages at the source code level of the directory structure (where the package.json file is)
 
-## Considerations
+## Future Considerations
 
-- We will eventually use Typescript.
-- We will eventually use a NoSQL database as a relation database does not aptly fit the project requirements.
-- We will use CircleCI for continuous integration.
+- use Typescript.
+- use a NoSQL database as a relation database does not aptly fit the project requirements.
+- use CircleCI for continuous integration.
 - Database will be decoupled from this configuration and stored in the cloud.
-- We will eventually have 100% code coverage
-- We will eventually have git badges for status updates
+- have 100% code coverage via JEST
+- have git badges for status updates
+- API documentation generator via OpenAPI or Swagger

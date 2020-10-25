@@ -65,4 +65,4 @@ Be sure to install packages at the source code level of the directory structure 
 - Database will be decoupled from this configuration and stored in the cloud
 - have 100% code coverage via JEST
 - have git badges for status updates
-- API documentation generator via OpenAPI or Swagger
+- API documentation generator via OpenAPI or Swagger (started)

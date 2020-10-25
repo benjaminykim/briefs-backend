@@ -14,21 +14,12 @@ briefs.link is a url shortener
 The backend is containerized with Docker and utilizes the `./deploy.sh` shell script with Docker Compose in order to
 build and run the application.
 
-For a local build run:
-
-`./deploy.sh dev`
-
-For production, run:
-
-`./deploy.sh prod`
-
-Use the `-f` flag to follow logs:
-
-`./deploy.sh dev -f`
-
-To delete all Docker volumes, images, and containers for system prune, run:
-
-`./deploy refresh`
+```
+sh ./deploy.sh dev      # for local deployment
+sh ./deploy.sh prod     # for production  deployment
+sh ./deploy.sh dev -f   # for local deployment with logs
+sh ./deploy.sh refresh  # to clear all Docker volumes, images and containers
+```
 
 ## Configuration
 

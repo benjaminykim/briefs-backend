@@ -1,12 +1,8 @@
 # [Briefs](https://make.briefs.link) Backend
 
-[Briefs](https://make.briefs.link) is a url shortener with an admin console
+[Briefs](https://make.briefs.link) is a url shortener with an admin console. The frontend code is found [here](https://github.com/benjaminykim/briefs-website) and the live app is found [here](https://make.briefs.link).
 
-Briefs backend is built with Javascript, Node, Express, Postgres, and Sequelize. The application is deployed and containerized using Docker Compose. Deployment and containerization is automated via BASH scripts.
-
-This application is hosted on an AWS EC2 instance. The frontend code is found
-[here](https://github.com/benjaminykim/briefs-website) and the live app is found [here](https://make.briefs.link).
-
+Briefs backend is built with Javascript, Node, Express, Postgres, and Sequelize. The application is deployed and containerized using Docker Compose. Deployment and containerization is automated via BASH scripts. This application is hosted on an AWS EC2 instance.
 
 ## Setting Up
 - Clone the repository and install Docker Engine and Docker Compose

@@ -37,6 +37,9 @@ router.post('/', async function(req, res) {
 	console.log(req.body);
 	if (req.body) {
 		const ret = await models.Stub.create(req.body);
+		ret.stub = ret.id;
+		await ret.save();
+		console.log(ret);
 		res.status(201).end(JSON.stringify({stub: ret.id}));
 	}
 });

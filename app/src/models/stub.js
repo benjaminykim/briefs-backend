@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   Stub.init({
     url: DataTypes.STRING,
-    hit: DataTypes.INTEGER
+    hit: DataTypes.INTEGER,
+    stub: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Stub',

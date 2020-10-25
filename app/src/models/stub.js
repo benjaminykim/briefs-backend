@@ -4,22 +4,22 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Stub extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
     }
   };
   Stub.init({
     url: DataTypes.STRING,
     hit: DataTypes.INTEGER,
-    stub: DataTypes.STRING
+    stub: {type:DataTypes.STRING, primaryKey: true},
   }, {
     sequelize,
     modelName: 'Stub',
+    indexes: [
+      {
+	unique: true,
+	fields:['stub']
+      }
+    ]
   });
   return Stub;
 };

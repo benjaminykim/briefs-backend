@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.addColumn(
       'Stubs',
       'stub',
-      Sequelize.DataTypes.STRING
+      { type: Sequelize.DataTypes.STRING, primaryKey: true}
     );
     /**
      * Add altering commands here.

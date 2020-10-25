@@ -35,18 +35,13 @@ router.get('/:id', async function(req, res) {
 });
 
 router.post('/', async function(req, res) {
-	console.log(req.body);
 	if (req.body) {
-		const ret = await models.Stub.create(req.body);
-		// compute md5 hash using record id
-		var md5Hash = md5(ret.url + ret.id.toString());
-		// take first 8 char of hash
-		var stub = md5Hash.slice(0, 8);
-		console.log(stub);
-		ret.stub = ret.id;
+		var md5Hash = md5(req.body);
+		var stub = md5Hash.slice(0, 6);
+		const ret = await models.Stub.create({'stub': stub, 'url':req.body.url});
 		await ret.save();
 		console.log(ret);
-		res.status(201).end(JSON.stringify({stub: ret.id}));
+		res.status(201).end(JSON.stringify({stub: ret.stub}));
 	}
 });
 
@@ -55,7 +50,7 @@ router.put('/:id', async function(req, res) {
 	if (req.body.id === id) {
 		await models.Stub.update(req.body, {
 			where: {
-				id: id
+				stub: stub
 			}
 		});
 	} else {
@@ -68,7 +63,7 @@ router.delete('/:id', async function(req, res) {
 	if (req.body.id === id) {
 		await models.Stub.destroy({
 			where: {
-				id: id
+				stub: stub
 			}
 		});
 	}

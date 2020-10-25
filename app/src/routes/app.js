@@ -34,21 +34,32 @@ router.get('/:id', async function(req, res) {
 	}
 });
 
+async function getUniqueHash(url) {
+	const string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	var stringLength = string.length;
+	function getRandomChar() {
+		return string.charAt(Math.floor(Math.random() * stringLength));
+	}
+
+	var isUnique = false;
+	var salt = "a";
+	while (!isUnique) {
+		var stub = md5(url).slice(0, 6);
+		var exists = await models.Stub.findByPk(stub);
+		isUnique = !exists;
+		url = url + getRandomChar();
+	}
+	return stub;
+}
+
 router.post('/', async function(req, res) {
 	console.log(req.body);
 	if (req.body) {
-		var md5Hash = md5(req.body.url);
-		var stub = md5Hash.slice(0, 6);
-		const check = await models.Stub.findByPk(stub);
-		if (check) {
-			console.log("found");
-			res.status(201).end(JSON.stringify({stub: check.stub}));
-		} else {
-			const ret = await models.Stub.create({'stub': stub, 'url':req.body.url});
-			await ret.save();
-			console.log(ret);
-			res.status(201).end(JSON.stringify({stub: ret.stub}));
-		}
+		var stub = await getUniqueHash(req.body.url);
+		const ret = await models.Stub.create({'stub': stub, 'url':req.body.url});
+		await ret.save();
+		console.log(ret);
+		res.status(201).end(JSON.stringify({stub: ret.stub}));
 	}
 });
 

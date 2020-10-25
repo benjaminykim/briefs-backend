@@ -40,9 +40,11 @@ NGINX serves HTTPS requests to the docker container for the backend api.
 
 In both dev and prod mode, user must exec a shell command within the running Docker container for the backend api and execute database migrations.
 
-`docker exec -it briefs-backend_api_1 sh`
-`cd src`
-`npx sequelize-cli db:migrate`
+```
+sh ./deploy.sh shell
+cd src
+npx sequelize-cli db:migrate
+```
 
 Be sure to install packages at the source code level of the directory structure (where the package.json file is)
 
@@ -50,7 +52,7 @@ Be sure to install packages at the source code level of the directory structure 
 
 In both dev and prod mode, user must exec a shell command within the running Docker container for the backend api and install dependencies.
 
-`docker exec -it briefs-backend_api_1 sh`
+`sh ./deploy.sh shell`
 `npm install {package_name}`
 
 Be sure to install packages at the source code level of the directory structure (where the package.json file is)

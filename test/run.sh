@@ -1,7 +1,7 @@
 #!/bin/sh
 ret=$(curl --header "Content-Type: application/json"\
 	--request POST\
-	--data '{"url":"benkim.dev"}'\
+	--data '{"url":"benkim.dev/blog"}'\
 	http://localhost:9090);
 
 

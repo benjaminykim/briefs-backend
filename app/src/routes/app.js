@@ -35,13 +35,20 @@ router.get('/:id', async function(req, res) {
 });
 
 router.post('/', async function(req, res) {
+	console.log(req.body);
 	if (req.body) {
-		var md5Hash = md5(req.body);
+		var md5Hash = md5(req.body.url);
 		var stub = md5Hash.slice(0, 6);
-		const ret = await models.Stub.create({'stub': stub, 'url':req.body.url});
-		await ret.save();
-		console.log(ret);
-		res.status(201).end(JSON.stringify({stub: ret.stub}));
+		const check = await models.Stub.findByPk(stub);
+		if (check) {
+			console.log("found");
+			res.status(201).end(JSON.stringify({stub: check.stub}));
+		} else {
+			const ret = await models.Stub.create({'stub': stub, 'url':req.body.url});
+			await ret.save();
+			console.log(ret);
+			res.status(201).end(JSON.stringify({stub: ret.stub}));
+		}
 	}
 });
 
